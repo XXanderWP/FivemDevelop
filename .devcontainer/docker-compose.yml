@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  server:
+    container_name: fivem-develop-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    volumes:
+      - .:/source:cached
+    # Uncomment the next line to use Docker from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker-compose for details.
+    # - /var/run/docker.sock:/var/run/docker.sock
+
+    command: /bin/sh -c "sh /source/scripts/aliases.sh && while sleep 1000; do :; done"

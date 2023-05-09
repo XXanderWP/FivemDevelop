@@ -1,0 +1,46 @@
+{
+  "name": "Develop project",
+  "dockerComposeFile": ["../docker-compose.yaml", "docker-compose.yml"],
+  "service": "server",
+  "workspaceFolder": "/source",
+  "settings": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "eslint.format.enable": true,
+    "editor.formatOnSave": true,
+    "eslint.workingDirectories": [
+      {
+        "mode": "auto"
+      }
+    ],
+    "eslint.run": "onSave",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[typescript]": {
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    }
+  },
+  "extensions": [
+    "sumneko.lua",
+    "TheRealCasi.FiveM-Lua-QBCore-Snippets",
+    "etherealth.fivem-esx-snippets",
+    "fivem-vscode.fivem-vscode",
+    "eg2.vscode-npm-script",
+    "dbaeumer.vscode-eslint",
+    "rvest.vs-code-prettier-eslint",
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig",
+    "eamodio.gitlens",
+    "gruntfuggly.todo-tree",
+    "dhawton.fivem-lua",
+    "usernamehw.errorlens"
+  ],
+  "portsAttributes": {
+    "8888": {
+      "label": "NUI Serve"
+    }
+  }
+}

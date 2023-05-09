@@ -1,0 +1,57 @@
+version: "3.9"
+services:
+  server:
+    container_name: fivem-develop-server
+    build:
+      args:
+        - FIVEM_VER=$FIVEM_VER
+      context: .
+
+    restart: always
+    stdin_open: true
+    tty: true
+
+    ports:
+      - "30110:30110/udp"
+      - "30110:30110"
+      - "30120:30120/udp"
+      - "30120:30120"
+
+    environment:
+      - MYSQL_DATABASE
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+      - FIVEM_PROJECT_NAME
+      - FIVEM_PROJECT_DESC
+      - FIVEM_DEV
+      - FIVEM_VER
+      - FIVEM_LICENSE_KEY
+      - MAX_CLIENTS
+
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:latest
+    container_name: fivem-develop-database
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    restart: always
+    environment:
+      - MYSQL_DATABASE
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+      - MYSQL_ROOT_PASSWORD
+      - DB_CHARSET=utf8mb4
+      - DB_COLLATION=utf8mb4_general_ci
+    volumes:
+      - ./database:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    container_name: fivem-develop-adminer
+    restart: always
+    ports:
+      - 8120:8080
+
+    depends_on:
+      - db
