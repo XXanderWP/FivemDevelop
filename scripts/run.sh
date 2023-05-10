@@ -5,13 +5,17 @@ read -p "Enter current FiveM Server license key [$(echo $FIVEM_LICENSE_KEY)]: " 
 
 export FIVEM_LICENSE_KEY=${input:-$FIVEM_LICENSE_KEY}
 
-RESOURCES="+set sv_licenseKey ${FIVEM_LICENSE_KEY} +sv_maxclients ${MAX_CLIENTS} +sv_hostname \"${FIVEM_PROJECT_NAME}\" +sets sv_projectName \"${FIVEM_PROJECT_NAME}\" +sets sv_projectDesc \"${FIVEM_PROJECT_DESC}\""
+read -p "Enter game build [$(echo $FIVEM_GAME_BUILD)]: " input2
+
+export FIVEM_GAME_BUILD=${input2:-$FIVEM_GAME_BUILD}
+
+RESOURCES="+set sv_licenseKey ${FIVEM_LICENSE_KEY} +set sv_enforceGameBuild ${FIVEM_GAME_BUILD} +sv_maxclients ${MAX_CLIENTS} +sv_hostname \"${FIVEM_PROJECT_NAME}\" +sets sv_projectName \"${FIVEM_PROJECT_NAME}\" +sets sv_projectDesc \"${FIVEM_PROJECT_DESC}\""
 
 
 
 RESOURCES="$RESOURCES +set mysql_connection_string \"user=${MYSQL_USER};password=${MYSQL_PASSWORD};host=db;port=3306;database=${MYSQL_DATABASE};charset=utf8mb4\""
 
-declare -a frameworks=("QBCore" "ESX")
+declare -a frameworks=("QBCore" "Standalone (No framework)")
 
 echo "Select framework to launch"
 select framework in "${frameworks[@]}";

@@ -1,6 +1,6 @@
 if [ -d "/fivem/server-data/resources" ] 
 then
-    echo "Resource folder exist"
+    echo "Resource folder already exist"
 else
     mkdir /fivem/server-data/resources/
 fi
@@ -59,3 +59,13 @@ else
     rm PolyZone.zip
 fi
 
+
+if [ -d "/fivem/server-data/resources/mythic_notify" ] 
+then
+    cd /fivem/server-data/resources/mythic_notify
+    git pull https://github.com/XXanderWP/mythic_notify --rebase
+else
+    git clone https://github.com/XXanderWP/mythic_notify /fivem/server-data/resources/mythic_notify
+fi
+
+cd /source

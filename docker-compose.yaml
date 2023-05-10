@@ -25,6 +25,7 @@ services:
       - FIVEM_PROJECT_DESC
       - FIVEM_DEV
       - FIVEM_VER
+      - FIVEM_GAME_BUILD
       - FIVEM_LICENSE_KEY
       - MAX_CLIENTS
 

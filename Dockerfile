@@ -35,16 +35,13 @@ RUN ln -s /source/server.cfg /fivem/server-data/server.cfg
 
 
 RUN chmod +x /source/scripts/*.sh 
-# Install BASE
+# Install Python
 RUN chmod +x /source/scripts/python.sh
 RUN sh /source/scripts/python.sh
-# Install BASE
-RUN chmod +x /source/scripts/base.sh
-RUN sh /source/scripts/base.sh
 
-# Install QBCore
-RUN chmod +x /source/scripts/qbcore.sh
-RUN sh /source/scripts/qbcore.sh
+# Install all frameworks
+RUN chmod +x /source/scripts/install_all.sh
+RUN sh /source/scripts/install_all.sh
 
 RUN chmod +x /fivem/run.sh
 RUN chmod +x /source/scripts/run.sh

@@ -1,4 +1,5 @@
 {
+  "git.ignoredRepositories": ["[QBCore]"],
   "Lua.diagnostics.globals": [
     "exports",
     "GetCurrentResourceName",
@@ -41,6 +42,9 @@
     "IsScreenFadedOut",
     "GetInvokingResource",
     "TaskStartScenarioInPlace",
-    "SetEntityInvincible"
+    "SetEntityInvincible",
+    "vector4",
+    "source",
+    "TriggerClientEvent"
   ]
 }

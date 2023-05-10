@@ -1,4 +1,4 @@
-declare -a types=("LUA_QBCore" "C#")
+declare -a types=("LUA_Standalone" "LUA_QBCore" "C#")
 
 
 read -p "Enter module name: " input
@@ -20,6 +20,10 @@ do
     if [[ $type = "LUA_QBCore" ]];
     then
         sh /source/scripts/create_qbcore.sh $input
+    fi
+    if [[ $type = "LUA_Standalone" ]];
+    then
+        sh /source/scripts/create_standalone.sh $input
     fi
     break;
     
